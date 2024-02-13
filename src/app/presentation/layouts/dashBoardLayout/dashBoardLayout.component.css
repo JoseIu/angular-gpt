@@ -1,0 +1,11 @@
+.active {
+  /* color: var(--text-color); */
+  color: #ffa420;
+}
+.layout {
+  padding: 1em;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 13.5em auto;
+  gap: 2em;
+}
