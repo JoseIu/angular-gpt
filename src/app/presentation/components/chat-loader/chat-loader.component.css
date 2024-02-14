@@ -5,7 +5,6 @@
   display: flex;
   gap: 0.3em;
   align-items: flex-end;
-  padding-bottom: 20%;
   justify-content: space-between;
   width: var(--uib-size);
   height: calc(var(--uib-size) * 0.6);
@@ -19,6 +18,7 @@
 }
 
 .cube__inner {
+  background-color: aquamarine;
   display: block;
   height: 100%;
   width: 100%;
