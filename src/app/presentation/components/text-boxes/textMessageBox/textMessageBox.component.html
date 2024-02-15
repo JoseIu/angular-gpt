@@ -1,7 +1,7 @@
 <form
   [formGroup]="myForm"
   (ngSubmit)="onSubmit()"
-  class="w-full p-4 shadow-xl rounded-md flex items-center justify-between"
+  class="w-full p-4 shadow-xl rounded-md flex items-center justify-between gap-2"
 >
   <input
     class="w-11/12 px-2 focus:outline-none rounded-md text-neutral-900"
@@ -10,11 +10,19 @@
     id=""
     [placeholder]="placeholder"
     formControlName="prompt"
+    [autocomplete]="disableCorrection ? 'on' : 'off'"
+    [spellcheck]="disableCorrection ? 'on' : 'off'"
   />
   <button
+    [ngClass]="{
+      'text-white': myForm.valid,
+      'text-white opacity-50': myForm.invalid
+    }"
+    class="flex items-center justify-center gap-2"
     type="submit"
-    class="top-3 right-5 text-2xl text-white hover:scale-125 transition-transform"
+    [disabled]="myForm.invalid"
   >
+    Enviar
     <i class="fa-solid fa-location-arrow rotate-45"></i>
   </button>
 </form>
