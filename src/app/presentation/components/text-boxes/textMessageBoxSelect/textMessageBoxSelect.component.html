@@ -1,0 +1,37 @@
+<form
+  [formGroup]="myForm"
+  (ngSubmit)="onSubmit()"
+  class="w-full p-4 shadow-xl rounded-md flex items-center justify-between gap-3"
+>
+  <input
+    class="w-11/12 px-2 focus:outline-none rounded-md text-neutral-900"
+    type="text"
+    name=""
+    id=""
+    [placeholder]="placeholder"
+    formControlName="prompt"
+  />
+
+  <select
+    formControlName="selectOption"
+    class="w-2/6 text-neutral-900 focus:outline-none rounded-md border focus:border-orange-400"
+  >
+    <option value="">Seleccionar</option>
+    @for (option of options; track option.id) {
+    <option [value]="option.id">{{ option.text }}</option>
+
+    }
+  </select>
+  <button
+    [ngClass]="{
+      'text-white': myForm.valid,
+      'text-white opacity-50': myForm.invalid
+    }"
+    class="flex items-center justify-center gap-2"
+    type="submit"
+    [disabled]="myForm.invalid"
+  >
+    Enviar
+    <i class="fa-solid fa-location-arrow rotate-45"></i>
+  </button>
+</form>
