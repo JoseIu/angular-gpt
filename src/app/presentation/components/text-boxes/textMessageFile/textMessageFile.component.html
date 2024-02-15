@@ -1,0 +1,32 @@
+<form
+  [formGroup]="myForm"
+  (ngSubmit)="onSubmit()"
+  class="w-full p-4 shadow-xl rounded-md flex items-center justify-between gap-3"
+>
+  <button (click)="fileInput.click()" class="">
+    <i class="fa-solid fa-paperclip text-xl"></i>
+    <input #fileInput type="file" hidden (change)="handleFileInput($event)" />
+  </button>
+  <input
+    class="w-11/12 px-2 focus:outline-none rounded-md text-neutral-900"
+    type="text"
+    name=""
+    id=""
+    [placeholder]="placeholder"
+    formControlName="prompt"
+    [autocomplete]="disableCorrection ? 'on' : 'off'"
+    [spellcheck]="disableCorrection ? 'on' : 'off'"
+  />
+  <button
+    [ngClass]="{
+      'text-white': myForm.valid,
+      'text-white opacity-50': myForm.invalid
+    }"
+    class="flex items-center justify-center gap-2"
+    type="submit"
+    [disabled]="myForm.invalid"
+  >
+    Enviar
+    <i class="fa-solid fa-location-arrow rotate-45"></i>
+  </button>
+</form>
