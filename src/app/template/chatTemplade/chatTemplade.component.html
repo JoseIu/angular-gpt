@@ -1,0 +1,19 @@
+<div class="h-full flex flex-col justify-between">
+  <div class="flex flex-col gap-2">
+    @for (message of messages(); track $index) {
+      @if (message.isGpt) {
+        <gpt-message [message]="message.message" />
+      } @else {
+        <my-message [message]="message.message" />
+      }
+    }
+    @if (isloading()) {
+      <chat-loader />
+    }
+  </div>
+
+  <text-message-box
+    [placeholder]="'Escribir....'"
+    (onSendMessage)="getMessage($event)"
+  />
+</div>
