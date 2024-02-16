@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { orthographyUseCase } from '@use-cases/index';
+import { from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OpenAiServiceService {
-
-  constructor() { }
+  orthographyCheck(prompt: string) {
+    return from(orthographyUseCase(prompt));
+  }
 }
