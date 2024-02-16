@@ -1,4 +1,9 @@
 export interface Message {
-  message: string;
+  text: string;
   isGpt: boolean;
+  info?: {
+    userScore: number;
+    errors: string[];
+    message: string;
+  };
 }
