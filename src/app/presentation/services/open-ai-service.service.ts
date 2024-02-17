@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { orthographyUseCase } from '@use-cases/index';
+import {
+  orthographyUseCase,
+  prosConsStreamUseCase,
+  prosConsUseCase,
+} from '@use-cases/index';
 import { from } from 'rxjs';
 
 @Injectable({
@@ -8,5 +12,12 @@ import { from } from 'rxjs';
 export class OpenAiServiceService {
   orthographyCheck(prompt: string) {
     return from(orthographyUseCase(prompt));
+  }
+
+  prosCons(prompt: string) {
+    return from(prosConsUseCase(prompt));
+  }
+  prosConsStream(prompt: string) {
+    return prosConsStreamUseCase(prompt);
   }
 }
