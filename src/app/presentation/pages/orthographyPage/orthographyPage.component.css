@@ -1,0 +1,17 @@
+.chat {
+  height: 90%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.chat::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+.chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat::-webkit-scrollbar-thumb {
+  background: #bb8f00;
+  border-radius: 0.625em;
+}
