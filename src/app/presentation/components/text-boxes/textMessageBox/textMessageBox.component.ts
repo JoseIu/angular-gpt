@@ -32,7 +32,7 @@ export class TextMessageBoxComponent {
     if (this.myForm.invalid) return;
 
     const { prompt } = this.myForm.value;
-    this.onSendMessage.emit(prompt ? prompt : '');
+    this.onSendMessage.emit(prompt!);
     this.myForm.reset();
   }
 }
