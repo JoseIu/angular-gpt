@@ -27,7 +27,6 @@ import { OpenAiServiceService } from 'app/presentation/services/open-ai-service.
     GptMessageOrthographyComponent,
   ],
   templateUrl: './orthographyPage.component.html',
-  styleUrls: ['./orthographyPage.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrthographyPageComponent {
