@@ -5,14 +5,14 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { GptMessageOrthographyComponent } from '@components/chat-bubbles/gptMessageOrthography/gptMessageOrthography.component';
 import {
   ChatLoaderComponent,
   GptMessageComponent,
   MyMessageComponent,
-  TextMessageBoxSelectComponent,
+  TextMessageBoxComponent,
 } from '@components/index';
 import { Message } from '@interfaces/mesaage.interface';
-import { TextMessageBoxSelect } from '@interfaces/text.MessageSelect.interface';
 import { OpenAiServiceService } from 'app/presentation/services/open-ai-service.service';
 
 @Component({
@@ -23,19 +23,42 @@ import { OpenAiServiceService } from 'app/presentation/services/open-ai-service.
     GptMessageComponent,
     MyMessageComponent,
     ChatLoaderComponent,
-    TextMessageBoxSelectComponent,
+    TextMessageBoxComponent,
+    GptMessageOrthographyComponent,
   ],
   templateUrl: './orthographyPage.component.html',
+  styleUrls: ['./orthographyPage.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrthographyPageComponent {
-  private openAiSerice = inject(OpenAiServiceService);
-  public messages = signal<Message[]>([
-    { message: 'Hello', isGpt: true },
-    { message: 'Hello', isGpt: false },
-  ]);
-  public isloading = signal(false);
-  public getMessage(event: TextMessageBoxSelect) {
-    console.log(event);
+  private openAiService = inject(OpenAiServiceService);
+
+  public messages = signal<Message[]>([]);
+
+  public isLoading = signal(false);
+
+  handleMessage(prompt: string) {
+    this.isLoading.set(true);
+
+    this.messages.update((prev) => [
+      ...prev,
+      {
+        isGpt: false,
+        text: prompt,
+      },
+    ]);
+
+    this.openAiService.orthographyCheck(prompt).subscribe((resp) => {
+      this.isLoading.set(false);
+
+      this.messages.update((prev) => [
+        ...prev,
+        {
+          isGpt: true,
+          text: resp.message,
+          info: resp,
+        },
+      ]);
+    });
   }
 }

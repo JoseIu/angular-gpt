@@ -1,23 +1,24 @@
 <div class="h-full flex flex-col justify-between">
-  <div class="flex flex-col gap-2">
+  <div class="chat flex flex-col gap-2 overflow-y-scroll scroll-auto">
     @for (message of messages(); track $index) {
       @if (message.isGpt) {
-        <gpt-message [message]="message.message" />
+        <!-- <gpt-message [message]="message.message" /> -->
+        <gpt-message-orthography
+          [message]="message.text"
+          [errors]="message.info!.errors"
+          [userScore]="message.info!.userScore"
+        />
       } @else {
-        <my-message [message]="message.message" />
+        <my-message [message]="message.text" />
       }
     }
-    @if (isloading()) {
+    @if (isLoading()) {
       <chat-loader />
     }
   </div>
-
-  <text-message-box-select
-    [placeholder]="'Escribir....'"
-    [options]="[
-      { id: '1', text: 'Hola' },
-      { id: '2', text: 'Adios' }
-    ]"
-    (onSendMessage)="getMessage($event)"
+  <text-message-box
+    [placeholder]="'escribe....'"
+    (onSendMessage)="handleMessage($event)"
+    [disableCorrection]="true"
   />
 </div>
