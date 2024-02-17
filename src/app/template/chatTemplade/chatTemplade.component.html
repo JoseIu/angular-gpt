@@ -1,5 +1,5 @@
 <div class="h-full flex flex-col justify-between">
-  <div class="flex flex-col gap-2">
+  <div class="chat flex flex-col gap-2">
     @for (message of messages(); track $index) {
       @if (message.isGpt) {
         <gpt-message [message]="message.text" />
