@@ -1,1 +1,19 @@
-<p>prosConsStreamPage works!</p>,
+<div class="h-full flex flex-col justify-between">
+  <div class="chat flex flex-col gap-2">
+    @for (message of messages(); track message.text) {
+      @if (message.isGpt) {
+        <gpt-message [message]="message.text" />
+      } @else {
+        <my-message [message]="message.text" />
+      }
+    }
+    @if (isloading()) {
+      <chat-loader />
+    }
+  </div>
+
+  <text-message-box
+    [placeholder]="'Escribir....'"
+    (onSendMessage)="getMessage($event)"
+  />
+</div>
