@@ -2,9 +2,9 @@
   <div class="flex flex-col gap-2">
     @for (message of messages(); track $index) {
       @if (message.isGpt) {
-        <gpt-message [message]="message.message" />
+        <gpt-message [message]="message.text" />
       } @else {
-        <my-message [message]="message.message" />
+        <my-message [message]="message.text" />
       }
     }
     @if (isloading()) {

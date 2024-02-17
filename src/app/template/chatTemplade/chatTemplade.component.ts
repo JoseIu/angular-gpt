@@ -29,10 +29,12 @@ import { OpenAiServiceService } from 'app/presentation/services/open-ai-service.
 })
 export class ChatTempladeComponent {
   private openAiSerice = inject(OpenAiServiceService);
+
   public messages = signal<Message[]>([
-    { message: 'Hello', isGpt: true },
-    { message: 'Hello', isGpt: false },
+    { text: 'Hello', isGpt: true },
+    { text: 'Hello', isGpt: false },
   ]);
+
   public isloading = signal(false);
 
   public getMessage(event: string) {
