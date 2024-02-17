@@ -9,6 +9,24 @@
   --text-color-light: rgba(255, 255, 255, 0.5);
 }
 
+.chat {
+  height: 90%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.chat::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+.chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat::-webkit-scrollbar-thumb {
+  background: #bb8f00;
+  border-radius: 0.625em;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
