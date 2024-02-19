@@ -38,7 +38,7 @@ export class TextMessageBoxSelectComponent {
 
     const { prompt, selectOption } = this.myForm.value;
 
-    this.onSendMessage.emit({ prompt: prompt!, selectOption: selectOption! });
+    this.onSendMessage.emit({ prompt: prompt!, lang: selectOption! });
     this.myForm.reset();
   }
 }
