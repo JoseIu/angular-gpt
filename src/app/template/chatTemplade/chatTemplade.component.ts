@@ -37,7 +37,7 @@ export class ChatTempladeComponent {
 
   public isloading = signal(false);
 
-  public getMessage(event: string) {
-    console.log(event);
+  public getMessage(prompt: string) {
+    console.log(prompt);
   }
 }
