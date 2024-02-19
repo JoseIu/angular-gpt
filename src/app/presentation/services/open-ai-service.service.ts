@@ -3,6 +3,7 @@ import {
   orthographyUseCase,
   prosConsStreamUseCase,
   prosConsUseCase,
+  textToAudioUseCase,
   translateUseCase,
 } from '@use-cases/index';
 import { from } from 'rxjs';
@@ -24,5 +25,8 @@ export class OpenAiServiceService {
 
   translate(prompt: string, lang: string) {
     return from(translateUseCase(prompt, lang));
+  }
+  textToAudio(prompt: string, voice: string) {
+    return from(textToAudioUseCase(prompt, voice));
   }
 }
