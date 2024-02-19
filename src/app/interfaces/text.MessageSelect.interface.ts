@@ -4,5 +4,5 @@ export interface Option {
 }
 export interface TextMessageBoxSelect {
   prompt: string;
-  lang: string;
+  selectOption: string;
 }
