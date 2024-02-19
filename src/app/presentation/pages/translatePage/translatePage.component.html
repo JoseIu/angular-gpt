@@ -1,1 +1,20 @@
-<p>translatePage works!</p>,
+<div class="h-full flex flex-col justify-between">
+  <div class="chat flex flex-col gap-2">
+    @for (message of messages(); track $index) {
+      @if (message.isGpt) {
+        <gpt-message [message]="message.text" />
+      } @else {
+        <my-message [message]="message.text" />
+      }
+    }
+    @if (isloading()) {
+      <chat-loader />
+    }
+  </div>
+
+  <text-message-box-select
+    [placeholder]="'Escribir.....'"
+    [options]="options"
+    (onSendMessage)="getMessage($event)"
+  />
+</div>
