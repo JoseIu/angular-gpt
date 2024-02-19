@@ -5,5 +5,9 @@
   >
   <div class="markdown bg-white bg-opacity-5 px-2 py-1 rounded-md">
     <markdown>{{ message }} </markdown>
+
+    @if (audioUrl) {
+      <audio [src]="audioUrl" controls></audio>
+    }
   </div>
 </div>
