@@ -50,15 +50,26 @@ export class TranslatePageComponent {
 
   public isloading = signal(false);
 
-  public getMessage({ prompt, lang }: TextMessageBoxSelect) {
-    const message = `Traduce a ${lang}: ${prompt}`;
-
+  public getMessage({ prompt, selectOption }: TextMessageBoxSelect) {
     this.isloading.set(true);
-    this.messages.update((prev) => [...prev, { text: message, isGpt: false }]);
 
-    this.openAiSerice.translate(prompt, lang).subscribe(({ message }) => {
+    this.messages.update((previusMessages) => [
+      ...previusMessages,
+      {
+        isGpt: false,
+        text: prompt,
+      },
+    ]);
+
+    this.openAiSerice.translate(prompt, selectOption).subscribe((response) => {
       this.isloading.set(false);
-      this.messages.update((prev) => [...prev, { text: message, isGpt: true }]);
+      this.messages.update((previusMessages) => [
+        ...previusMessages,
+        {
+          isGpt: true,
+          text: response.message,
+        },
+      ]);
     });
   }
 }
