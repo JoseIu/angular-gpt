@@ -8,3 +8,5 @@ export * from './fetch/ortographyResponse.intertface';
 export * from './fetch/pros-cons.respones';
 
 export * from './textToAudio.interface';
+
+export * from './fetch/audioToText.interface';
