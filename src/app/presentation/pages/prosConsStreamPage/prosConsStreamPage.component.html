@@ -1,5 +1,7 @@
 <div class="h-full flex flex-col justify-between">
   <div class="chat flex flex-col gap-2">
+    <gpt-message [message]="'Qué deseas comparar?'" />
+
     @for (message of messages(); track message.text) {
       @if (message.isGpt) {
         <gpt-message [message]="message.text" />
