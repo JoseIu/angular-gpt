@@ -11,9 +11,13 @@
 code {
   text-wrap: pretty;
 }
-
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
 .chat {
-  height: 90%;
+  max-height: 85dvh;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
