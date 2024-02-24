@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { audioToTextUseCase } from '@use-cases/auditoTotex/auditoToText.use-case';
 import {
+  imageGenerationUseCase,
   orthographyUseCase,
   prosConsStreamUseCase,
   prosConsUseCase,
@@ -33,5 +34,9 @@ export class OpenAiServiceService {
 
   audtioToText(file: File, prompt?: string) {
     return from(audioToTextUseCase(file, prompt));
+  }
+
+  imageGeneration(prompt: string) {
+    return from(imageGenerationUseCase(prompt));
   }
 }
