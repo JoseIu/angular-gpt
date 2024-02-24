@@ -1,1 +1,21 @@
-<p>imageGenerationPage works!</p>,
+<div class="h-full flex flex-col justify-between">
+  <div class="chat flex flex-col gap-2">
+    <gpt-message [message]="'¿Qué deseas generar?'" />
+
+    @for (message of messages(); track $index) {
+      @if (message.isGpt) {
+        <gpt-message [message]="message.text" [imageUrl]="message.imageUrl" />
+      } @else {
+        <my-message [message]="message.text" />
+      }
+    }
+    @if (isloading()) {
+      <chat-loader />
+    }
+  </div>
+
+  <text-message-box
+    [placeholder]="'Escribir....'"
+    (onSendMessage)="getMessage($event)"
+  />
+</div>
