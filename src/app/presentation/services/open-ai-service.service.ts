@@ -37,8 +37,8 @@ export class OpenAiServiceService {
     return from(audioToTextUseCase(file, prompt));
   }
 
-  imageGeneration(prompt: string) {
-    return from(imageGenerationUseCase(prompt));
+  imageGeneration(prompt: string, originalIamge?: string, maskIamge?: string) {
+    return from(imageGenerationUseCase(prompt, originalIamge, maskIamge));
   }
 
   imageVariation(originalImage: string) {
