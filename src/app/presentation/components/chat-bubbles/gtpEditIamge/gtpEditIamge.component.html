@@ -1,0 +1,18 @@
+<div class="w-full flex justify-start gap-2">
+  <span
+    class="w-7 h-7 bg-amber-600 rounded-full flex justify-center items-center flex-shrink-0"
+    >G</span
+  >
+
+  <div class="bg-white bg-opacity-5 px-2 py-1 rounded-md">
+    <canvas
+      class="max-w-full"
+      width="1024"
+      height="1024"
+      #canvas
+      (mousedown)="onMouseDown($event)"
+      (mousemove)="onMouseMove($event)"
+      (mouseup)="onMouseUp()"
+    ></canvas>
+  </div>
+</div>
