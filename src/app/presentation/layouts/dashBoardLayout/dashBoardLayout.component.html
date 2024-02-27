@@ -1,15 +1,17 @@
 <main class="layout">
   <aside class="p-4 h-full flex flex-col gap-16 shadow-md rounded-md">
-    <h1 class="text-orange-400 text-2xl uppercase font-semibold">Wellcome</h1>
+    <h1 class="text-orange-400 text-2xl uppercase font-semibold">
+      welcome - 0.1
+    </h1>
     <nav class="flex flex-col justify-center gap-5">
       @for (nav of routes; track nav.path) {
-      <nav-item
-        [path]="nav.path!"
-        [icon]="nav.data!['icon']"
-        [title]="nav.data!['title']"
-        [description]="nav.data!['description']"
-        [routerLinkActive]="'active'"
-      />
+        <nav-item
+          [path]="nav.path!"
+          [icon]="nav.data!['icon']"
+          [title]="nav.data!['title']"
+          [description]="nav.data!['description']"
+          [routerLinkActive]="'active'"
+        />
       }
     </nav>
   </aside>
