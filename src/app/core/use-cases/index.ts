@@ -9,3 +9,5 @@ export * from './translate/translate.use-case';
 export * from './textToAudio/textToAudio.use-case';
 
 export * from './image-generation/imageGeneration.use-case';
+
+export * from './image-variation/imageVariation.use-case';
