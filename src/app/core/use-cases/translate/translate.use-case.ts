@@ -3,8 +3,6 @@ import { environment } from 'environments/environment';
 
 export const translateUseCase = async (prompt: string, lang: string) => {
   try {
-    console.log({ prompt, lang });
-
     const response = await fetch(`${environment.backendUrl}/translate`, {
       method: 'POST',
       headers: {
