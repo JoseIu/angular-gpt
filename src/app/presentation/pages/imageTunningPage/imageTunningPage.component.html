@@ -1,1 +1,40 @@
-<p>imageTunningPage works!</p>,
+@if (originalImage()) {
+  <div
+    class="fixed w-32 h-32 top-6 right-11 flex flex-col gap-2 justify-center"
+  >
+    <img class="rounded-md" [src]="originalImage()" alt="imagen a editar" />
+
+    <button
+      class="bg-orange-400 rounded-sm p-1 text-sm"
+      (click)="generateVariation()"
+    >
+      Generar variación
+    </button>
+  </div>
+}
+
+<div class="h-full flex flex-col justify-between">
+  <div class="chat flex flex-col gap-2">
+    <gpt-message [message]="'¿Qué deseas generar?'" />
+
+    @for (message of messages(); track $index) {
+      @if (message.isGpt) {
+        <gtp-edit-iamge
+          [message]="message.text"
+          [imageUrl]="message.imageUrl!"
+          (imageEmit)="handleIamgeUrl($event, message.imageUrl!)"
+        />
+      } @else {
+        <my-message [message]="message.text" />
+      }
+    }
+    @if (isloading()) {
+      <chat-loader />
+    }
+  </div>
+
+  <text-message-box
+    [placeholder]="'Escribir....'"
+    (onSendMessage)="getMessage($event)"
+  />
+</div>
