@@ -8,3 +8,5 @@ export * from './chat-loader/chat-loader.component';
 export * from './text-boxes/textMessageBox/textMessageBox.component';
 export * from './text-boxes/textMessageBoxSelect/textMessageBoxSelect.component';
 export * from './text-boxes/textMessageFile/textMessageFile.component';
+
+export * from './chat-bubbles/gtpEditIamge/gtpEditIamge.component';
