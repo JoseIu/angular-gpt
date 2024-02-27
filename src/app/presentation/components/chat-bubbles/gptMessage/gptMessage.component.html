@@ -1,6 +1,6 @@
 <div class="w-full flex justify-start gap-2">
   <span
-    class="w-7 h-7 bg-amber-600 rounded-full flex justify-center items-center"
+    class="w-7 h-7 bg-amber-600 rounded-full flex justify-center items-center flex-shrink-0"
     >G</span
   >
   <div class="markdown bg-white bg-opacity-5 px-2 py-1 rounded-md">
@@ -12,7 +12,7 @@
     @if (imageUrl) {
       <div class="max-w-2xl">
         <img
-          class="block max-w-full w-full object-cover"
+          class="block max-w-full w-full object-cover rounded-md"
           [src]="
             'http://localhost:3000/gpt/image-generation/f15dd017-115e-4ddd-887c-830d4a8e686a.png'
           "
@@ -21,24 +21,4 @@
       </div>
     }
   </div>
-
-  <!-- <div class="col-start-1 col-end-9 p-3 rounded-lg">
-  <div class="flex flex-row items-start">
-    <div
-      class="flex items-center justify-center h-10 w-10 rounded-full bg-green-600 flex-shrink-0"
-    >
-      G
-    </div>
-
-    <div
-      class="relative ml-3 text-sm bg-black bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-xl"
-    >
-      <markdown>{{ message }}</markdown>
-
-      @if (audioUrl) {
-        <audio controls [src]="audioUrl" autoplay class="w-full"></audio>
-      }
-    </div>
-  </div>
-</div> -->
 </div>
