@@ -1,14 +1,14 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+.env
+
+# src/envitonments/environment.ts
+src/environments/environment.ts
 
 # Compiled output
 /dist
 /tmp
 /out-tsc
 /bazel-out
-
-#Env
-.env
-src/environments/environment.ts
 
 # Node
 /node_modules
