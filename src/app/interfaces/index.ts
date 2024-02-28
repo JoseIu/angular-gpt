@@ -12,3 +12,5 @@ export * from './textToAudio.interface';
 export * from './fetch/audioToText.interface';
 
 export * from './fetch/imageGenerate.interface';
+
+export * from './assistant/assistantResponse.interface';
