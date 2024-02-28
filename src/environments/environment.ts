@@ -1,3 +1,5 @@
-export const environment = {
-  backendUrl: 'http://localhost:3000/gpt',
-};
+
+    export const environment = {
+      backendUrl:"http://localhost:3000/gpt",
+    };
+  

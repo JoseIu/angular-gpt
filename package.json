@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node ./scripts/set-envs.js && ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -29,6 +29,7 @@
     "@angular/compiler-cli": "^17.1.0",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.17",
+    "dotenv": "^16.4.5",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
