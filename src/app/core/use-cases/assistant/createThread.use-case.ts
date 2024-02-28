@@ -1,6 +1,8 @@
+import { environment } from 'environments/environment';
+
 export const createThreadUseCase = async () => {
   try {
-    const response = await fetch(`http://localhost:3000/gpt/create-thread`, {
+    const response = await fetch(`${environment.backendUrl}/create-thread`, {
       method: 'POST',
     });
 
