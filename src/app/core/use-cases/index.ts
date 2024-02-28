@@ -11,3 +11,6 @@ export * from './textToAudio/textToAudio.use-case';
 export * from './image-generation/imageGeneration.use-case';
 
 export * from './image-variation/imageVariation.use-case';
+
+export * from './assistant/createThread.use-case';
+export * from './assistant/postMessage.use-case';
